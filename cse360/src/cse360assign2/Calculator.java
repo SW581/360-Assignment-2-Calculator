@@ -16,14 +16,17 @@ package cse360assign2;
 public class Calculator {
 
 	private int total;
+	private String actionHistory;
 	
 	/**
 	 * The only constructor for this class.
 	 * Initializes the total to zero.
+	 * Initializes actionHistory to "0"
 	 */
 	
 	public Calculator () {
 		total = 0;  // not needed - included for clarity
+		actionHistory = "0";
 	}
 	
 	/**
@@ -42,6 +45,7 @@ public class Calculator {
 	 */
 	public void add (int value) {
 		total = total + value;
+		actionHistory = actionHistory + " + " + value;
 	}
 	
 	/**
@@ -53,6 +57,7 @@ public class Calculator {
 	
 	public void subtract (int value) {
 		total = total - value;
+		actionHistory = actionHistory + " - " + value;
 	}
 	
 	/**
@@ -64,6 +69,7 @@ public class Calculator {
 	
 	public void multiply (int value) {
 		total = total * value;
+		actionHistory = actionHistory + " * " + value;
 	}
 	
 	/**
@@ -77,11 +83,13 @@ public class Calculator {
 		if(value != 0)
 		{
 			total = total / value;
+			
 		}
 		else
 		{
 			total = 0;
 		}
+		actionHistory = actionHistory + " / " + value;
 	}
 	
 	/**
@@ -92,6 +100,6 @@ public class Calculator {
 	 */
 	
 	public String getHistory () {
-		return "";
+		return actionHistory;
 	}
 }
